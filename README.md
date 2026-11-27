@@ -40,32 +40,64 @@ Pokedex/
 └── pokedex_db.sql
 ```
 
-## Base de datos
-
-El proyecto utiliza una base de datos MySQL llamada `pokedex_db`.
-
-La tabla `favoritos` almacena los Pokémon guardados, incluyendo su identificador, nombre, imagen y fecha de registro.
-
-El archivo `pokedex_db.sql` contiene la estructura necesaria para crear e importar la base de datos.
-
 ## Requisitos
 
+- Git.
 - XAMPP.
 - PHP con extensión PDO para MySQL.
 - MySQL o MariaDB.
-- Navegador web con conexión a Internet.
+- Navegador web.
+- Conexión a Internet.
 
 ## Instalación y ejecución
 
-1. Instalar y ejecutar XAMPP.
-2. Iniciar los servicios Apache y MySQL.
-3. Copiar la carpeta `Pokedex` dentro de `C:\xampp\htdocs\`.
-4. Abrir phpMyAdmin desde `http://localhost/phpmyadmin/`.
-5. Importar el archivo `pokedex_db.sql`.
-6. Verificar la configuración de conexión en `backend/conexion.php`.
-7. Abrir el proyecto desde el navegador:
+### 1. Descargar el proyecto desde GitHub
 
-   `http://localhost/Pokedex/`
+Abrir PowerShell y ejecutar los siguientes comandos:
+
+```powershell
+cd C:\xampp\htdocs
+git clone https://github.com/Lakeret/Pokedex.git
+```
+
+Esto descargará el repositorio y creará automáticamente la carpeta `Pokedex` dentro de `htdocs`.
+
+### 2. Iniciar XAMPP
+
+1. Abrir el panel de control de XAMPP.
+2. Iniciar los servicios Apache y MySQL.
+
+### 3. Configurar la base de datos
+
+1. Abrir `http://localhost/phpmyadmin/`.
+2. Seleccionar la opción Importar.
+3. Elegir el archivo `pokedex_db.sql`, ubicado en la carpeta del proyecto.
+4. Ejecutar la importación.
+
+El archivo contiene las instrucciones necesarias para crear la base de datos `pokedex_db` y su tabla `favoritos`.
+
+### 4. Configurar la conexión
+
+Verificar el archivo `backend/conexion.php`.
+
+La configuración inicial utiliza los valores habituales de XAMPP:
+
+- Servidor: `localhost`
+- Base de datos: `pokedex_db`
+- Usuario: `root`
+- Contraseña: vacía
+
+Si la instalación local utiliza otras credenciales, será necesario modificarlas.
+
+### 5. Ejecutar la aplicación
+
+Abrir el navegador y acceder a:
+
+```text
+http://localhost/Pokedex/
+```
+
+La aplicación ya estará disponible para utilizarse.
 
 ## API utilizada
 
