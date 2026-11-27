@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Pokédex</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header class="pokedex-header">
+
+        <div class="pokedex-device">
+
+            <div class="pokedex-top">
+
+                <div class="pokedex-lens">
+                    <div class="pokedex-lens-inner"></div>
+                </div>
+
+                <div class="pokedex-indicators">
+                    <span class="indicator indicator-red"></span>
+                    <span class="indicator indicator-yellow"></span>
+                    <span class="indicator indicator-green"></span>
+                </div>
+
+                <div class="pokedex-speaker">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="pokedex-screen">
+
+                <div class="screen-content">
+
+                    <span class="screen-label">POKÉMON DATABASE SYSTEM</span>
+
+                    <h1>MI POKÉDEX</h1>
+
+                    <p>Explorá y descubrí todos los Pokémon</p>
+
+                    <div class="screen-decoration">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pokedex-bottom">
+
+                <div class="pokedex-button-decoration"></div>
+
+                <div class="pokedex-bottom-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="pokedex-brand">POKÉDEX SYSTEM</div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="pokemon-search"
+                placeholder="Buscar Pokémon por nombre o número..."
+            >
+
+            <button id="search-button">
+                Buscar
+            </button>
+
+            <button id="clear-button">
+                Mostrar todos
+            </button>
+
+        </div>
+
+        <section class="filters-container">
+
+            <h2>Filtrar por tipo</h2>
+
+            <div class="filter-controls">
+
+                <select id="type-filter">
+
+                    <option value="">Todos los tipos</option>
+
+                    <option value="normal">Normal</option>
+                    <option value="fire">Fuego</option>
+                    <option value="water">Agua</option>
+                    <option value="electric">Eléctrico</option>
+                    <option value="grass">Planta</option>
+                    <option value="ice">Hielo</option>
+                    <option value="fighting">Lucha</option>
+                    <option value="poison">Veneno</option>
+                    <option value="ground">Tierra</option>
+                    <option value="flying">Volador</option>
+                    <option value="psychic">Psíquico</option>
+                    <option value="bug">Bicho</option>
+                    <option value="rock">Roca</option>
+                    <option value="ghost">Fantasma</option>
+                    <option value="dragon">Dragón</option>
+                    <option value="dark">Siniestro</option>
+                    <option value="steel">Acero</option>
+                    <option value="fairy">Hada</option>
+
+                </select>
+
+                <button id="filter-button">
+                    Aplicar filtro
+                </button>
+
+                <button id="reset-filter-button">
+                    Quitar filtro
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="filters-container">
+
+            <h2>Ordenar Pokémon</h2>
+
+            <div class="filter-controls">
+
+                <select id="sort-filter">
+
+                    <option value="id-asc">Número: menor a mayor</option>
+                    <option value="id-desc">Número: mayor a menor</option>
+
+                    <option value="name-asc">Nombre: A - Z</option>
+                    <option value="name-desc">Nombre: Z - A</option>
+
+                    <option value="attack-desc">Ataque: mayor a menor</option>
+                    <option value="attack-asc">Ataque: menor a mayor</option>
+
+                    <option value="defense-desc">Defensa: mayor a menor</option>
+                    <option value="defense-asc">Defensa: menor a mayor</option>
+
+                    <option value="speed-desc">Velocidad: mayor a menor</option>
+                    <option value="speed-asc">Velocidad: menor a mayor</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+        <div class="favorites-toolbar">
+
+            <button id="favorites-button">
+                ♥ Mis favoritos
+            </button>
+
+            <span id="favorites-count">
+                0 favoritos
+            </span>
+
+        </div>
+
+        <section id="favorites-section" class="favorites-section hidden">
+
+            <h2>Mis Pokémon favoritos</h2>
+
+            <div id="favorites-container" class="pokemon-grid">
+                <p class="loading">Cargando favoritos...</p>
+            </div>
+
+        </section>
+
+        <section id="catalog-section">
+
+            <h2 class="section-title">Todos los Pokémon</h2>
+
+            <div id="pokemon-container" class="pokemon-grid">
+                <p class="loading">Cargando Pokémon...</p>
+            </div>
+
+            <div class="pagination" id="pagination">
+
+                <button id="previous-button" disabled>
+                    Anterior
+                </button>
+
+                <span id="page-indicator">
+                    Página 1
+                </span>
+
+                <button id="next-button">
+                    Siguiente
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="pokemon-modal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <button id="close-modal" class="close-modal">
+                &times;
+            </button>
+
+            <div id="modal-body"></div>
+
+        </div>
+
+    </div>
+
+    <footer class="footer">
+
+        <h2>Mi Pokédex</h2>
+
+        <p>Explorá y descubrí el mundo Pokémon.</p>
+
+        <p class="footer-credits">
+            Datos proporcionados por
+            <a
+                href="https://pokeapi.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                PokéAPI
+            </a>
+        </p>
+
+        <span class="footer-copy">
+            © 2026 Mi Pokédex - Proyecto académico
+        </span>
+
+    </footer>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
+
